@@ -1,0 +1,6 @@
+.idea/
+
+# Not committing html to version control, it is something we render not work
+# with in this project.
+html/
+index.html
