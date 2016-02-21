@@ -18,11 +18,12 @@ block js
   //- The inline-script tag behaves badly with comments in it.
   //-
   //- `locals` is the data object that this Jade template was rendered with.
-  //- We want to pass that same data object into our view model in order to
-  //- initialize the knockout observables.
+  //- We want to pass that same data object into the Knockout-side in order
+  //- to initialize the knockout ViewModel/observables.
   //- Use JSON.stringify to unpack the `locals` object into JSON.
-  //- Use `!{}` to prevent html escaping.
+  //- Use `!{}` to prevent html escaping, this is JS code.
   script.
     (function () {
-      ko.applyBindings(new HomepageViewModel(!{JSON.stringify(locals)}));
+      var data = !{JSON.stringify(locals)};
+      ko.applyBindings(new HomepageViewModel(data));
     }())
