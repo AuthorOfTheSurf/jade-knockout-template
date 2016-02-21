@@ -1,13 +1,28 @@
+extends main-layout
+
 block head
-  title #{title}
+  title(data-bind="text: title")
 
 block css
-  link(rel="stylesheet"
-       href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/css/materialize.min.css")
 
 block body
-  h1 #{title}
-  h3 #{subtitle}
+  h1(data-bind="text: title")
+  h3(data-bind="text: subtitle")
 
 block js
-  script(src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.5/js/materialize.min.js")
+  //- Use minified version for production.
+  //- I use the debug version during development for auto-complete help in Intellij
+  script(src='http://knockoutjs.com/downloads/knockout-3.4.0.debug.js')
+  //- This is where the view model lives
+  script(src='../js/homepage.ko.js')
+  //- The inline-script tag behaves badly with comments in it.
+  //-
+  //- `locals` is the data object that this Jade template was rendered with.
+  //- We want to pass that same data object into our view model in order to
+  //- initialize the knockout observables.
+  //- Use JSON.stringify to unpack the `locals` object into JSON.
+  //- Use `!{}` to prevent html escaping.
+  script.
+    (function () {
+      ko.applyBindings(new HomepageViewModel(!{JSON.stringify(locals)}));
+    }())
