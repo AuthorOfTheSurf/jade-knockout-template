@@ -15,8 +15,6 @@ block js
   script(src='http://knockoutjs.com/downloads/knockout-3.4.0.debug.js')
   //- This is where the view model lives
   script(src='../js/homepage.ko.js')
-  //- The inline-script tag behaves badly with comments in it.
-  //-
   //- `locals` is the data object that this Jade template was rendered with.
   //- We want to pass that same data object into the Knockout-side in order
   //- to initialize the knockout ViewModel/observables.
@@ -24,6 +22,6 @@ block js
   //- Use `!{}` to prevent html escaping, this is JS code.
   script.
     (function () {
-      var data = !{JSON.stringify(locals)};
+      var data = ( !{JSON.stringify(locals)} );
       ko.applyBindings(new HomepageViewModel(data));
-    }())
+    }());
