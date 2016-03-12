@@ -2,7 +2,9 @@
 .idea/
 *.iml
 
-# Not committing html to version control, it is something we render not work
+# Not committing built HTML to version control, it is something we render not work
 # with in this project.
-html/
-index.html
+build/
+
+# Node gitignore
+node_modules
