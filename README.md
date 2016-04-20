@@ -12,4 +12,4 @@ This template aims to be a fairly minimal example of a project that uses Jade an
 3. Install dependencies: `npm install`
 4. Start static file server & Jade/JS/Datasource watch: `npm run gulp`
 5. Visit pages at `localhost:8000`. Livereload will automatically refresh the page after you save your Jade or Javascript.
-6. Take a look at source code to see how to get Jade and Knockout.js working together given a single data-blob as a starting point.
+6. Take a look at source code to see how to get Jade and Knockout.js working together with a structured JSON data directory as a starting point.
