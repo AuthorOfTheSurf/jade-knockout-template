@@ -5,17 +5,24 @@ const connect = require('gulp-connect');
 const jade = require('gulp-jade');
 const rename = require('gulp-rename');
 const data = require('gulp-data');
+const mkdirp = require('mkdirp');
 
 const parseJSONData = (file) => {
-  const dataFilePath = `./data/${path.basename(file.path, '.jade')}.json`;
+  const formattedFilePath = file.path.replace(__dirname, '').replace('.jade', '');
+  const jsonFilePath = `./data${formattedFilePath}.json`;
   // Check for corresponding data file, create if it DNE.
   try {
-    fs.accessSync(dataFilePath, fs.F_OK);
+    fs.accessSync(jsonFilePath, fs.F_OK);
   } catch(e) {
-    fs.writeFileSync(dataFilePath, '{}', 'utf8');
+    console.log(`No corresponding data file found at path ${jsonFilePath}, creating one for you!`);
+
+    mkdirp.sync(path.dirname(jsonFilePath));
+    fs.writeFileSync(jsonFilePath, '{}', 'utf8');
+
+    return JSON.parse(fs.readFileSync(jsonFilePath, 'utf8'))
   }
 
-  return JSON.parse(fs.readFileSync(`./data/${path.basename(file.path, '.jade')}.json`, 'utf8'))
+  return JSON.parse(fs.readFileSync(jsonFilePath, 'utf8'))
 };
 
 gulp.task('connect', () => {
