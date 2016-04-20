@@ -22,6 +22,6 @@ block js
   //- Use `!{}` to prevent html escaping, this is JS code.
   script.
     (function () {
-      var data = ( !{JSON.stringify(locals)} );
+      var data = ({ title: "!{title}", subtitle: "!{subtitle}" });
       ko.applyBindings(new HomepageViewModel(data));
     }());
