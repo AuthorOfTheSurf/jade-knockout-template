@@ -1,0 +1,27 @@
+{
+  "name": "jade-knockout-template",
+  "version": "1.0.0",
+  "description": "This template aims to be a fairly minimal example of a project that uses Jade and Knockout.js in its front-end scheme. Programmers aiming to use these technologies together should be able to use this starter template as a learn-by-example opportunity.",
+  "main": "Gulpfile.js",
+  "scripts": {
+    "gulp": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AuthorOfTheSurf/jade-knockout-template.git"
+  },
+  "author": "Zane Kansil",
+  "bugs": {
+    "url": "https://github.com/AuthorOfTheSurf/jade-knockout-template/issues"
+  },
+  "homepage": "https://github.com/AuthorOfTheSurf/jade-knockout-template#readme",
+  "dependencies": {
+    "gulp": "~3.9.1",
+    "gulp-connect": "~2.3.1",
+    "gulp-data": "~1.2.1",
+    "gulp-jade": "~1.1.0",
+    "gulp-rename": "~1.2.2",
+    "gulp-watch": "~4.3.5",
+    "mkdirp": "~0.5.1"
+  }
+}
